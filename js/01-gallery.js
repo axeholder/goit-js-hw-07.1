@@ -3,18 +3,22 @@ import { galleryItems } from "./gallery-items.js";
 
 // console.log(galleryItems);
 
+const listEl = document.querySelector(".gallery");
+const galleryMarkup = createGalleryMarkup(galleryItems);
+listEl.insertAdjacentHTML("beforeend", galleryMarkup);
+
 function createGalleryMarkup(galleryItems) {
-  const markup = galleryItems.map((item) => {
-    return `<li class="gallery__item"> 
+  return galleryItems
+    .map((item) => {
+      return `<li class="gallery__item"> 
         <a class = "gallery__link" 
-            href = "large-image.jpg">
+            href = "${item.original}">
         <img class = "gallery__image"
-            src = "small-image.jpg"
-            data - source = "large-image.jpg"
-            alt = "Image description" />
-        </a>{" "} 
+            src = "${item.preview}"
+            data - source = "${item.original}"
+            alt = "${item.description}" />
+        </a> 
         </li>`;
-  });
-  console.log(markup);
+    })
+    .join("");
 }
-console.log(createGalleryMarkup(galleryItems));
