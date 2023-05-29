@@ -22,3 +22,9 @@ function createGalleryMarkup(galleryItems) {
     })
     .join("");
 }
+
+listEl.addEventListener("click", onGalleryClick);
+
+function onGalleryClick(event) {
+  console.log(event.target);
+}
