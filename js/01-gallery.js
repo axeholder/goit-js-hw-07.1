@@ -1,3 +1,4 @@
+import * as basicLightbox from "basiclightbox";
 import { galleryItems } from "./gallery-items.js";
 // Change code below this line
 
@@ -15,7 +16,7 @@ function createGalleryMarkup(galleryItems) {
             href = "${item.original}">
         <img class = "gallery__image"
             src = "${item.preview}"
-            data - source = "${item.original}"
+            data-source = "${item.original}"
             alt = "${item.description}" />
         </a> 
         </li>`;
@@ -30,5 +31,5 @@ function onGalleryClick(event) {
   if (!event.target.classList.contains(`gallery__image`)) {
     return;
   }
-  console.log(event.target);
+  console.log(event.target.getAttribute("data-source"));
 }
