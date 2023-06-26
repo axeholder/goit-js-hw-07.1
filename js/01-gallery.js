@@ -1,9 +1,10 @@
-import * as basicLightbox from "basiclightbox";
+// import * as basicLightbox from "basiclightbox";
 import { galleryItems } from "./gallery-items.js";
 // Change code below this line
 
 // console.log(galleryItems);
 
+// const basicLightbox = require("basiclightbox");
 const listEl = document.querySelector(".gallery");
 const galleryMarkup = createGalleryMarkup(galleryItems);
 listEl.insertAdjacentHTML("beforeend", galleryMarkup);
