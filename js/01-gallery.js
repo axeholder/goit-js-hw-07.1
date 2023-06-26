@@ -1,10 +1,8 @@
-// import * as basicLightbox from "basiclightbox";
 import { galleryItems } from "./gallery-items.js";
 // Change code below this line
 
 // console.log(galleryItems);
 
-// const basicLightbox = require("basiclightbox");
 const listEl = document.querySelector(".gallery");
 const galleryMarkup = createGalleryMarkup(galleryItems);
 listEl.insertAdjacentHTML("beforeend", galleryMarkup);
@@ -32,5 +30,18 @@ function onGalleryClick(event) {
   if (!event.target.classList.contains(`gallery__image`)) {
     return;
   }
-  console.log(event.target.getAttribute("data-source"));
+  const instance = basicLightbox.create(`
+    <img src="${event.target.dataset.source}" width="800" height="600">
+  `);
+
+  instance.show();
+
+  listEl.addEventListener("keydown", (event) => {
+    if (event.code === "Escape") {
+      instance.close();
+    }
+  });
+
+  // console.log(event.target.dataset.source);
+  // console.log(event.target.getAttribute("data-source"));
 }
